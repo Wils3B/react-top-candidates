@@ -32,9 +32,28 @@ code {
   transition: all .15s ease-in-out;
 }
 
+.btn-blue {
+  color: #fff;
+  background-color: #007bff;
+}
+
+.btn-red {
+  color: #fff;
+  background-color: #d43a40;
+}
+
+.mr10 {
+  margin-right: 10px;
+}
+
+
 .container {
   max-width: 1600px;
   width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
+}
+
+.mw300 {
+  max-width: 300px;
 }
