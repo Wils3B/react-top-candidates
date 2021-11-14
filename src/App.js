@@ -1,9 +1,12 @@
 import './App.css';
-import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import CandidatePage from './pages/CandidatePage';
 import {useCandidatesContext} from './contexts/CandidatesContext';
 import {useEffect, useState} from 'react';
+import NavBar from './components/NavBar';
+import Spinner from './components/Spinner';
+import ListType from './enums/ListType';
 
 function fetchDataFromApi() {
   return fetch('https://s3-ap-southeast-1.amazonaws.com/he-public-data/users49b8675.json')
@@ -16,7 +19,7 @@ function fetchDataFromApi() {
     .then((data) => {
       const candidatesObject = {};
       data.forEach((item) => {
-        candidatesObject[item.id] = item;
+        candidatesObject[item.id] = {...item, list: ListType.ALL};
       });
       return candidatesObject;
     });
@@ -58,7 +61,10 @@ function App() {
           </button>
         </div>
       ) : loading ? (
-        <div>Loading...</div>
+        <div className="loadingView">
+          <Spinner />
+          Loading...
+        </div>
       ) : (
         <Router history={true}>
           <div>
