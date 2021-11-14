@@ -1,0 +1,17 @@
+.navBar {
+  background-color: #007bff;
+  padding: 0.5rem 1rem;
+}
+
+.btnReset {
+  background-color: #d43a40;
+  color: #fff;
+  margin-left: 10px;
+}
+
+.flexBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+}

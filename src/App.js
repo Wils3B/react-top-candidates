@@ -68,13 +68,7 @@ function App() {
       ) : (
         <Router history={true}>
           <div>
-            <nav>
-              <ul>
-                <li>
-                  <Link to="/">Home</Link>
-                </li>
-              </ul>
-            </nav>
+            <NavBar />
 
             <Switch>
               <Route path="/" exact={true}>
