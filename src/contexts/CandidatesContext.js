@@ -21,11 +21,12 @@ function CandidatesProvider({children}) {
   function getCandidates(filters = {}) {
     const returnedArray = [];
     Object.keys(candidates).forEach((id) => {
+      const candidate = candidates[id];
       const filtersKeys = Object.keys(filters);
       for (let i = 0; i < filtersKeys.length; i++) {
         const filterKey = filtersKeys[i];
-        const value = candidates[id][filterKey];
-        if (typeof value !== 'string' || value.toLowerCase().includes(filters[filterKey])) {
+        const value = candidate[filterKey];
+        if (typeof value !== 'string' || !value.toLowerCase().includes(filters[filterKey].toLowerCase())) {
           return;
         }
         returnedArray.push(candidates[id]);

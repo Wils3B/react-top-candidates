@@ -4,17 +4,17 @@ import CandidatesList from '../components/CandidatesList';
 
 function HomePage() {
   const candidatesContext = useCandidatesContext();
-  const candidatesArray = useMemo(
-    () => Object.values(candidatesContext.candidates),
-    [candidatesContext.candidates]
+  const candidates = useMemo(
+    () => candidatesContext.getCandidates({name: candidatesContext.searchText}),
+    [candidatesContext.candidates, candidatesContext.searchText]
   );
 
   return (
     <div className="container">
-      <div>Tabs</div>
+      {candidatesContext.searchText && <h3>Search results, {candidates.length} results</h3>}
       <div>
         <h1>All candidates</h1>
-        <CandidatesList candidates={candidatesArray} />
+        <CandidatesList candidates={candidates} />
       </div>
     </div>
   );

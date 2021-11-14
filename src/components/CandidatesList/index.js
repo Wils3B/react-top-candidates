@@ -5,11 +5,17 @@ function CandidatesList(props) {
   const {candidates} = props;
 
   return (
-    <div className={styles.candidatesList}>
-      {candidates.map((candidate) => (
-        <CandidateCard candidate={candidate} key={candidate.id} />
-      ))}
-    </div>
+    <>
+      {candidates && candidates.length ? (
+        <div className={styles.candidatesList}>
+          {candidates.map((candidate) => (
+            <CandidateCard candidate={candidate} key={candidate.id} />
+          ))}
+        </div>
+      ) : (
+        <div className={styles.noResults}>😔 Nothing to display</div>
+      )}
+    </>
   );
 }
 
