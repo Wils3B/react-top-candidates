@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {CandidatesProvider} from './contexts/CandidatesContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <CandidatesProvider>
+      <App />
+    </CandidatesProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
