@@ -31,7 +31,11 @@ function NavBar() {
             placeholder="Search here..."
           />
           {candidatesContext.searchText && (
-            <button className={['btn', styles.btnReset].join(' ')} type="reset" onClick={handleReset}>
+            <button
+              className={['btn', styles.btnReset].join(' ')}
+              type="reset"
+              onClick={handleReset}
+            >
               Reset
             </button>
           )}

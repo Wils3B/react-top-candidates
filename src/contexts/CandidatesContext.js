@@ -26,7 +26,10 @@ function CandidatesProvider({children}) {
       for (let i = 0; i < filtersKeys.length; i++) {
         const filterKey = filtersKeys[i];
         const value = candidate[filterKey];
-        if (typeof value !== 'string' || !value.toLowerCase().includes(filters[filterKey].toLowerCase())) {
+        if (
+          typeof value !== 'string' ||
+          !value.toLowerCase().includes(filters[filterKey].toLowerCase())
+        ) {
           return;
         }
         returnedArray.push(candidates[id]);

@@ -25,11 +25,11 @@ code {
   user-select: none;
   background-color: transparent;
   border: 1px solid transparent;
-  padding: .375rem .75rem;
+  padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: .25rem;
-  transition: all .15s ease-in-out;
+  border-radius: 0.25rem;
+  transition: all 0.15s ease-in-out;
 }
 
 .btn-blue {
@@ -45,7 +45,6 @@ code {
 .mr10 {
   margin-right: 10px;
 }
-
 
 .container {
   max-width: 1600px;

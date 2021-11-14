@@ -1,5 +1,5 @@
 import React from 'react';
-import {useParams} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 import {useCandidatesContext} from '../contexts/CandidatesContext';
 import CandidateCard from '../components/CandidateCard';
 import ListType from '../enums/ListType';
@@ -10,23 +10,33 @@ function CandidatePage() {
 
   const candidate = candidatesContext.getCandidate(candidateId);
 
+  const history = useHistory();
+
   function sendToShortlist() {
-    candidatesContext.updateCandidate(candidateId, { ...candidate, list: ListType.SHORT_LIST });
+    candidatesContext.updateCandidate(candidateId, {...candidate, list: ListType.SHORT_LIST});
+    history.push('/');
   }
 
   function sendToRejectedList() {
-    candidatesContext.updateCandidate(candidateId, { ...candidate, list: ListType.REJECTED });
+    candidatesContext.updateCandidate(candidateId, {...candidate, list: ListType.REJECTED});
+    history.push('/');
   }
   return (
     <>
       {candidate ? (
         <div className="container">
-          <h1>Candidate {candidate.name}, List: { candidate.list }</h1>
+          <h1>
+            Candidate {candidate.name}, List: {candidate.list}
+          </h1>
           <div className="mw300">
             <CandidateCard candidate={candidate} />
           </div>
-          <button className="btn btn-blue mr10" onClick={sendToShortlist}>Shortlist</button>
-          <button className="btn btn-red" onClick={sendToRejectedList}>Reject</button>
+          <button className="btn btn-blue mr10" onClick={sendToShortlist}>
+            Shortlist
+          </button>
+          <button className="btn btn-red" onClick={sendToRejectedList}>
+            Reject
+          </button>
         </div>
       ) : (
         <div>Candidate with id {candidateId} Not found</div>
